@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/userbase::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title th:text="${title}">dashboard</title>
+</head>
+<body>
+<section>
+<div class="container text-center">
+ <img alt=""style="width: 200px;height: 200px" class="contactimage" th:src="@{'/image/'+${u.imgurl}}">
+ <h2 class="text-center mt-3 font-italic font-weight-light">Start Adding Contacts On Cloud.....Dont Worry To Manage...</h2>
+ <h4  class="font-weight-light">For any support contact us on below</h4>
+ 
+ 
+ 
+ </div>
+ <footer class="text-center text-white" style="background-color: #f1f1f1;">
+  <!-- Grid container -->
+  <div class="container pt-4">
+  <p class="text-center text-dark">e-mail: contactmanager@gmail.com</p>
+    <!-- Section: Social media -->
+    <section class="mb-4">
+    
+      <!-- Facebook -->
+      
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-linkedin"></i
+      ></a>
+      <!-- Github -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-dark" href="https://192.168.0.101:8080/">ContactManager.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+
+
+<script type="text/javascript">
+$(document).ready(()=>{
+	$(".item").removeClass("active");
+	$("#homes").addClass("active");
+});
+
+</script>
+</section>
+
+</body>
+</html>

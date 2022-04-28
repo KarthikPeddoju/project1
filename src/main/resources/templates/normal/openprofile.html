@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/userbase::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title th:text="${title}">dashboard</title>
+</head>
+<body>
+	<section>
+		<div class="card mr-3 ml-3 " >
+			<div class="card-body text-center">
+				<div class="container ">
+				
+					
+						
+						<form class="mt-1" method="post"
+						th:action="@{/user/saveprofile} "
+						enctype="multipart/form-data" th:object="${u}">
+						
+						
+						<img alt="" style="width: 200px; height: 200px"
+						class="contactimage" th:src="@{'/image/'+${u.imgurl}}">
+						
+					<div class="custom-file mt-2">
+						<input type="file" name="contactimage" multiple="multiple"  >
+						<input type="hidden" name="password" th:value="${u.password}"  />
+						
+					</div>
+					Enter Name
+					<input type="text" name="uname" th:value="${u.uname}"/>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">ID</th>
+								<th scope="col"><span th:text="${u.uid}"></span></th>
+
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr>
+								<th scope="col">Email <input type="hidden" name="email" th:value="${u.email}"  /></th>
+								
+								<th scope="col"><span th:text="${u.email}"></span></th>
+
+							</tr>
+							<tr>
+								<th scope="col">Role</th>
+								<th scope="col"><span th:text="${u.role}"></span></th>
+
+							</tr>
+							<tr>
+								<th scope="col">About</th>
+								<th scope="col"><input type="text" placeholder="Enter About Yourself " name="about" th:value="${u.about}"/></th>
+
+							</tr>
+
+
+						</tbody>
+					</table>
+
+					
+						<button type="submit" class="btn btn-primary btn-sm">SaveChanges</button>
+					</form>
+				</div>
+
+			</div>
+
+		</div>
+		
+
+	</section>
+
+</body>
+</html>

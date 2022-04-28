@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title th:text="${title}">Insert title here</title>
+</head>
+<body>
+<section class="banner d-flex justify-content-center " >
+
+
+<div class="container ">
+<div class="row">
+<div class="col-md-6 offset-md-3">
+<div th:if="${session.msg}" th:classappend="${session.msg.type}" class="alert " role="alert">
+<h6 th:text="${session.msg.content}"></h6>
+<th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+</div>
+
+<div class="my-card">
+
+<img alt="" style="width: 50px" th:src="@{/image/note.png}">
+<h4 class="text-white text-center">SignUp Here</h4>
+
+<form novalidate th:action="@{/register}" method="post" th:object="${u}">
+
+
+  
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label text-white">Enter Name</label>
+    <input type="text" th:classappend="${#fields.hasErrors('uname')?'is-invalid':''}"  name="uname" th:value="${u.uname}" class="form-control is-invalid"  placeholder="Enter Name" required="required">
+  
+  <div class="invalid-feedback" th:each="e :   ${#fields.errors('uname')}" th:text="${e}"> </div>
+  
+  </div>
+      
+      
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label text-white">Email address</label>
+    <input type="email" th:classappend="${#fields.hasErrors('email')?'is-invalid':''}" class="form-control" name="email" th:value="${u.email}" placeholder="Email" required="required">
+    <div id="emailHelp" class="form-text text-white">We'll never share your email with anyone else.</div>
+  <div class="invalid-feedback" th:each="e  : ${#fields.errors('email')}" th:text="${e}" ></div>
+  </div>
+  <div class="mb-3">
+    <label for="Password" class="form-label text-white">Password</label>
+    <input  type="password" name="password" th:value="${u.password}" th:classappend="${#fields.hasErrors('password')?'is-invalid':''}" class="form-control is-invalid" id="Password1" placeholder="Enter Password" required="required">
+    <div class="invalid-feedback" th:each="e  : ${#fields.errors('password')}" th:text="${e}" ></div>
+  
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" name="agre" class="form-check-input" id="exampleCheck1"  >
+    <label class="form-check-label" style="color: red" for="exampleCheck1">*</label>
+    <label class="form-text text-white" >Agree terms</label>
+  </div>
+  <div class="text-center">
+
+<button type="submit"class="btn bg-primary text-white " >SignUp
+</button>
+<button type="reset" class="btn bg-primary text-white " >Reset</button>
+</div>
+</form>
+</div>
+
+
+</div>
+
+</div>
+
+
+
+</div>
+</section>
+
+</body>
+</html>
